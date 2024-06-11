@@ -1,14 +1,19 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import { CreateTodo } from './CreateTodo'
+import { Todo } from './Todo'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [todos, setTodos]= useState([]);
+  fetch("http://localhost:3000/todos")
+    .then(async (res)=>{
+      const todojson = await es.json();
+      setTodos(todojson.todos); 
+    })
   return (
     <div>
-      hi there
+      <CreateTodo />
+      <Todo todos={todos}/>
     </div>
   )
 }
