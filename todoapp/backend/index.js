@@ -1,6 +1,6 @@
 const express = require("express");
 const { createTodo, updateTodo } = require("./types");
-const { todo, todo } = require("./db");
+const { todo } = require("./db");
 const app = express();
 app.use(express.json());
 
@@ -41,7 +41,7 @@ app.put("/completed",async(req,res)=>{
         })
         return;
     }else{ //update todo to completed in database
-        await todo.update({_id:req.body.id},{completed: true})
+        await todo.updateOne({_id:req.body.id},{completed: true})
         res.json({
             msg: "Todo marked as completed"
         })
