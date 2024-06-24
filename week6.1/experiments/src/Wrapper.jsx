@@ -1,4 +1,4 @@
-function App(){
++function App(){
     return(
         // pasing a component as a props
     <div>
