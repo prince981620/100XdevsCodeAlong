@@ -1,10 +1,22 @@
+import client from "@/db"
 import axios from "axios";
 
+// async function getUserData() {
+//   await new Promise((r)=>setTimeout(r,1000));
+//   const response = await axios.get("http://localhost:3000/api/user")
+//   return response.data;
+// }
+
+// const client = new prisma();
+
 async function getUserData() {
-  await new Promise((r)=>setTimeout(r,1000));
-  const response = await axios.get("http://localhost:3000/api/user")
-  return response.data;
+  const user = await client.user.findFirst();
+  return {
+    email: user?.username,
+    name: "Prince"
+  }
 }
+
 
 export default async function Home() {
   const userData = await getUserData();
