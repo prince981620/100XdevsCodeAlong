@@ -1,5 +1,6 @@
 "use client"
 
+import { signup } from "@/app/action/user/signup";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { ChangeEventHandler, useState } from "react";
@@ -26,10 +27,7 @@ export default function Signup() {
                             setPassword(e.target.value)
                         }} label="Password" type={"password"} placeholder="123456" />
                         <button onClick={async ()=>{
-                            await axios.post("http://localhost:3001/api/user", {
-                                username,
-                                password
-                            })
+                            await signup(username,password);
                             router.push("/");
                         }} type="button" className="mt-8 w-full text-white bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Sign in</button>
                     </div>
