@@ -6,9 +6,9 @@ export default function SignIn() {
   return (
     <div>
       <h1>Sign In</h1>
-      {/* <button onClick={() => signIn("google", { callbackUrl: "/api/username/king" })}> */}
+      <button className="border " onClick={() => signIn("google")}>
         Sign in with Google
-      {/* </button> */}
+      </button>
     </div>
   );
 }

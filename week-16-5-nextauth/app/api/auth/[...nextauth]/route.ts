@@ -20,7 +20,7 @@ const handler = NextAuth({
                     name: "Prince Yadav",
                     email: "price@gmail.com"
                 }
-            },
+            },c
         }),
         GoogleProvider({
             clientId: process.env.GOOGLE_ID || "",
@@ -30,7 +30,8 @@ const handler = NextAuth({
     secret: process.env.NEXTAUTH_SECRET,
     callbacks: {
         session: ({session,token,user}:any)=> {
-            console.log(session)
+            console.log("this is session",session)
+            console.log("this is token",token);
             if(session && session.user) {
                 session.user.id = token.sub;
             }

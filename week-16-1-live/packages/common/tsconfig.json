@@ -1,5 +1,7 @@
 {
     "extends": "@repo/typescript-config/react-library.json",
+    "name": "common",
+    "type": "module",
     "compilerOptions": {
         "rootDir": "./src",
         "outDir": "./dist"
